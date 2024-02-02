@@ -1,0 +1,29 @@
+{
+    "development": {
+      "database": {
+        "username": "root",
+        "password": null,
+        "db_name": "ib_hr_module",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "logging": false
+      }
+    },
+    "staging": {
+      "database": {
+        "username": "XXXX",
+        "password": "XXXX",
+        "db_name": "XXXX",
+        "host": "XXXX",
+        "dialect": "XXXX"
+      }
+    },
+    "production": {
+      "database": {
+        "username": "XXXX",
+        "password": "XXXX",
+        "db_name": "XXXX",
+        "host": "XXXX"
+      }
+    }
+}
