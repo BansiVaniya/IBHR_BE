@@ -2,15 +2,11 @@ const { DataTypes } = require('sequelize');
 const db = require('../config/db.config');
 
 const Store = db.define('store', {
-    id: {
-        type: DataTypes.BIGINT,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
-    },
     storeId: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
     },
     scId: {
         type: DataTypes.INTEGER,
@@ -81,7 +77,7 @@ const Store = db.define('store', {
         allowNull: true
     },
     store_status: {
-        type: DataTypes.ENUM('Active','Inactive'),
+        type: DataTypes.ENUM('Active', 'Inactive'),
         allowNull: true,
         default: 'Active'
     },
@@ -105,7 +101,7 @@ const Store = db.define('store', {
 },
     {
         tableName: 'store',
-        timeStamps: true
+        timeStamps: false
     });
 
 module.exports = Store;

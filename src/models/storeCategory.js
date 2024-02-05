@@ -23,7 +23,7 @@ const StoreCategory = db.define('storecategory', {
 },
     {
         tableName: 'storecategory',
-        timeStamps: true
+        timeStamps: false
     });
 
 module.exports = StoreCategory;

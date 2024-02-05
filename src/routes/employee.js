@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Controller = require('../controller/userController');
+const Controller = require('../controller/employeeController');
 const { jwtVerify } = require('../middleware/JWT');
 
-router.post('/login', Controller.login);
 
+router.get('/',jwtVerify, Controller.getAllNewHire);
 
 module.exports = router;

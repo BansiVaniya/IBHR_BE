@@ -43,7 +43,7 @@ const UserLog = db.define('user_log', {
 },
     {
         tableName: 'user_log',
-        timeStamps: true
+        timeStamps: false
     });
 
 module.exports = UserLog;

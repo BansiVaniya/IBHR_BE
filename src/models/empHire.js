@@ -1,5 +1,8 @@
 const { DataTypes } = require("sequelize");
 const db = require("../config/db.config");
+const EmpDesignation = require('../models/empDesignation');
+const EmpPayRateEntity = require('../models/empPayRateEntity');
+const Store = require('../models/store');
 
 const EmpHire = db.define(
   "emphire",
@@ -18,10 +21,10 @@ const EmpHire = db.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    resignReasonId: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-    },
+    // resignReasonId: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    // },
     employeeId: {
       type: DataTypes.STRING(100),
       allowNull: true,
@@ -218,8 +221,27 @@ const EmpHire = db.define(
 
   {
     tableName: "emphire",
-    timeStamps: true,
+    timeStamps: false,
   }
 );
+
+// Define associations within EmpHire model
+EmpHire.belongsTo(EmpDesignation, {
+  foreignKey: 'empDesignation',
+  as: 'empdesignation',
+});
+
+EmpHire.belongsTo(EmpPayRateEntity, {
+  foreignKey: 'empId', // Assuming this is the foreign key in EmpHire model
+  targetKey: 'empId', // Assuming this is the primary key in EmpPayRateEntity model
+  as: 'empPayRateEntity' 
+});
+
+EmpPayRateEntity.belongsTo(Store, { foreignKey: 'storeId' });
+
+EmpHire.belongsTo(Store, {
+  foreignKey: 'storeId',
+  as: 'store',
+});
 
 module.exports = EmpHire;
