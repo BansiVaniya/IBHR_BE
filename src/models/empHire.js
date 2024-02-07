@@ -105,7 +105,7 @@ const EmpHire = db.define(
     },
     empStatus: {
       type: DataTypes.ENUM('Active', 'In-Active'),
-      allowNull: false,
+      allowNull: true,
       default: 'Active',
     },
     DOJ: {
@@ -198,7 +198,7 @@ const EmpHire = db.define(
     },
     firstTimeLogin: {
       type: DataTypes.ENUM('0', '1'),
-      allowNull: false,
+      allowNull: true,
       default: '0',
     },
     forgot_otp: {
