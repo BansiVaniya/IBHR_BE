@@ -35,5 +35,22 @@ methods.getAllRejected = async (req, res) => {
   }
 };
 
+methods.addNewHire = async (req, res) => {
+  try {
+    const userId = req.user.data.id;
+    const result = await employeeServicesInterface.addNewHire(req?.body,userId);
+    if (result.success) {
+      return SuccessPostResponse(res, "New hire saved successfully", result.body);
+    }
+    else {
+      return ErrorResponse(res, result.httpStatus, result.body);
+    }
+
+  } catch (error) {
+    return ErrorResponse(res, 500, error);
+
+  }
+}
+
 
 module.exports = methods;

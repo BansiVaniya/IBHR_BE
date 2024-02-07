@@ -3,6 +3,7 @@ const EmpHire = require('../models/empHire');
 const EmpDesignation = require('../models/empDesignation');
 const EmpPayRateEntity = require('../models/empPayRateEntity');
 const Store = require('../models/store');
+const EmpWorkHour = require('../models/empWorkHour');
 
 const getAllNewHire = async (params) => {
 	const limit = parseInt(params.limit) || 25;
@@ -21,8 +22,8 @@ const getAllNewHire = async (params) => {
 		[Op.or]: [
 			{ status: 'newhire' },
 			{ status: 'boarded' },
-			{ status: 'resigned'}
-			
+			{ status: 'resigned' }
+
 
 		]
 	};
@@ -79,12 +80,27 @@ const getAllNewHire = async (params) => {
 };
 
 
-const getAllRejected = async(params)=>{
-  const limit = parseInt(params.limit) || 25;
-	const offset = parseInt(params.offset)||0;
-	
+// const getAllRejected = async (params) => {
+// 	const limit = parseInt(params.limit) || 25;
+// 	const offset = parseInt(params.offset) || 0;
+
+// }
+
+
+const addNewHire = async (data) => {
+	return await EmpHire.create(data);
+
 }
 
+const addEmpWorkHour = async (data) => {
+	return await EmpWorkHour.create(data);
+}
+
+const findEmployeeByEmail = async (email) => {
+	return await EmpHire.findOne({
+		where: { empEmail: email }
+	})
+};
 
 
 
@@ -97,5 +113,8 @@ const generateIncludeModels = () => [
 ];
 
 module.exports = {
-	getAllNewHire
+	getAllNewHire,
+	addNewHire,
+	addEmpWorkHour,
+	findEmployeeByEmail
 };

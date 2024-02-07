@@ -40,6 +40,14 @@ const UserLog = db.define('user_log', {
         type: DataTypes.STRING,
         allowNull: true
     },
+    created_at:{
+        type: DataTypes.TIME,
+        allowNull: true
+    },
+    updated_at:{
+        type: DataTypes.TIME,
+        allowNull: true
+    }
 },
     {
         tableName: 'user_log',

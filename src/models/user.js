@@ -73,10 +73,10 @@ const Users = db.define('users', {
         type: DataTypes.STRING,
         allowNull: true
     },
-    forgot_otp: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
+    // forgot_otp: {
+    //     type: DataTypes.STRING,
+    //     allowNull: true
+    // },
     forgot_timestamp: {
         type: DataTypes.TIME,
         allowNull: true

@@ -5,5 +5,6 @@ const { jwtVerify } = require('../middleware/JWT');
 
 
 router.get('/',jwtVerify, Controller.getAllNewHire);
+router.post('/addNewHire' , jwtVerify , Controller.addNewHire);
 
 module.exports = router;
