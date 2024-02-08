@@ -61,7 +61,6 @@ const getAllNewHire = async (params) => {
 		query.include[1].where = { payStatus: 'Active' };
 	}
 
-
 	query.attributes = [
 		'empId', 'empName', 'empDesignation', 'empResidency', 'empMarital', 'empPhone',
 		'empEmail', 'status', 'doj', 'empDOB', 'address', 'city', 'zipcode', 'state',
@@ -79,12 +78,6 @@ const getAllNewHire = async (params) => {
 	return result;
 };
 
-
-// const getAllRejected = async (params) => {
-// 	const limit = parseInt(params.limit) || 25;
-// 	const offset = parseInt(params.offset) || 0;
-
-// }
 
 
 const addNewHire = async (data) => {

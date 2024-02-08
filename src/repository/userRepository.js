@@ -1,4 +1,4 @@
-const { DATE } = require('sequelize');
+
 const UserModel = require('../models/user');
 const UserLog = require('../models/user_log');
 const findUserByEmail = async (email) => {

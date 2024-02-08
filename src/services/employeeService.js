@@ -13,16 +13,6 @@ class EmployeeServices {
 		}
 	}
 
-	// async getAllRejected(params) {
-	// 	try {
-	// 		const result = await getAllRejected(params);
-	// 		return { success: true, body: result };
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 		return { success: false, httpStatus: 500, body: error };
-
-	// 	}
-	// }
 	async addNewHire(data, userId) {
 		try {
 			const employeeData = {
